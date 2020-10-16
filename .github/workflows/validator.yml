@@ -18,7 +18,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2.1.0
 
-      - uses: ghe-actions/dockerfile-validator@v1
-          with:
-            dockerfile: 'Dockerfile'
-            lint: 'hadolint'
+      - name: doockerfile-validator
+        uses: ghe-actions/dockerfile-validator@v1
+        with:
+          dockerfile: 'Dockerfile'
+          lint: 'hadolint'
