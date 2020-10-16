@@ -5,7 +5,7 @@
 
 ## Functions
 
-### main
+### get_now
 
 
 
@@ -46,7 +46,7 @@ b |  |
 ### moltiplicazione
 
 
-function that return multiplication of args :param a: :param b: :return: 
+function that return multiplication of args :param a: first number :param b: second number :return: int|float 
 #### Parameters
 name | description | default
 --- | --- | ---
