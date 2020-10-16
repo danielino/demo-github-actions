@@ -6,6 +6,6 @@ RUN pip install -r requirements.txt
 
 COPY demo .
 
-COPY app.py .
+COPY main.py .
 
-CMD ["python3", "app.py"]
+CMD ["python3", "main.py"]
