@@ -1,0 +1,55 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    name: Python Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Run flake8
+        uses: julianwachholz/flake8-action@v1.1.0
+        with:
+          checkName: "Python Lint"
+          path: demo/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2.1.0
+
+      - name: doockerfile-validator
+        uses: ghe-actions/dockerfile-validator@v1
+        with:
+          dockerfile: 'Dockerfile'
+          lint: 'hadolint'
+
+  test:
+    name: Pytests
+    runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          os: [ubuntu-latest]
+          python-version: [ '3.8', '3.7']
+      name: Python ${{ matrix.python-version }} ${{ matrix.os }}
+
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v2.1.0
+
+        - name: Python PyTest GitHub Action
+          uses: cclauss/GitHub-Action-for-pytest@0.5.0
+          with:
+            args: pytest -v
