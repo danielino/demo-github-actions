@@ -2,7 +2,7 @@ import datetime
 from typing import Any
 
 
-def somma(a, b) -> Any[int, float]:
+def somma(a, b) -> Any:
     """
     function that return sum of args
     :param a:
@@ -11,12 +11,13 @@ def somma(a, b) -> Any[int, float]:
     """
     return a + b
 
-def moltiplicazione(a, b) -> Any[int, float]:
+
+def moltiplicazione(a, b) -> Any:
     """
     function that return multiplication of args
-    :param a:
-    :param b:
-    :return:
+    :param a: first number
+    :param b: second number
+    :return: int|float
     """
     return a * b
 
