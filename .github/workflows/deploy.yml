@@ -25,3 +25,9 @@ jobs:
       - name: Deploy
         run: |
           gcloud app deploy --quiet
+
+      # check app
+      - name: Check if app is reachable
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: https://${{ secrets.PROJECT_ID }}.oa.r.appspot.com/now
