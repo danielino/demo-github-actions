@@ -1,13 +1,16 @@
 name: Security check - Bandit
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ubuntu-latest]
         python-version: [ '3.8']
     name: Python ${{ matrix.python-version }} ${{ matrix.os }}
 
