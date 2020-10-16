@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-          uses: actions/checkout@v2.1.0
+        uses: actions/checkout@v2.1.0
 
       - name: Python Pylin GitHub Action
         uses: fylein/python-pytest-github-action@v1
