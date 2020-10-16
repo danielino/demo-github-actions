@@ -1,0 +1,21 @@
+name: Unit Testing
+
+on:
+  push:
+    branches:
+      - *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [ '3.8', '3.7']
+    name: Python ${{ matrix.python-version }} ${{ matrix.os }}
+
+    steps:
+      - name: Python Pylin GitHub Action
+        uses: fylein/python-pytest-github-action@v1
+        with:
+          args: pip3 install -r requirements.txt && pytest -v
