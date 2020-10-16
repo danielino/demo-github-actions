@@ -2,8 +2,10 @@ name: Testing
 
 on:
   push:
+    paths:
+      - '**.py'
     branches:
-      - !main
+      - '!main'
 
 jobs:
   lint:
