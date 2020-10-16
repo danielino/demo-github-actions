@@ -37,19 +37,18 @@ jobs:
           lint: 'hadolint'
 
   test:
-    name: Pytests
     runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          os: [ubuntu-latest]
-          python-version: [ '3.8', '3.7']
-      name: Python ${{ matrix.python-version }} ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.8', '3.7']
+    name: Pytests on ${{ matrix.python-version }} ${{ matrix.os }}
 
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v2.1.0
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2.1.0
 
-        - name: Python PyTest GitHub Action
-          uses: cclauss/GitHub-Action-for-pytest@0.5.0
-          with:
-            args: pytest -v
+      - name: Python PyTest GitHub Action
+        uses: cclauss/GitHub-Action-for-pytest@0.5.0
+        with:
+          args: pytest -v
